@@ -26,4 +26,10 @@ public class HomePageTest extends BaseTest {
         Boolean isLogoVisible = Pages.returnHomePage(getDriver()).isVisibleLogo();
         assertThat(isLogoVisible).isTrue();
     }
+    @Test
+    public void validateMenuOptionHotels(){
+        log.info("Step 1: Validate the menu option: Hotels");
+        assertThat(Pages.returnHomePage(getDriver()).getTextOptionHotels()).isEqualTo("Hoteles");
+        log.info("Step 2: Click on the option Hotels");
+    }
 }

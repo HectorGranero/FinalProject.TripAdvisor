@@ -27,6 +27,9 @@ public class BaseTest {
         getDriver().manage().deleteAllCookies();
 
         getDriver().manage().window().maximize();
+
+        log.info("Step 0: Navigate to Tripadvisor.com.mx");
+        navigateTo("tripadvisor.com.mx");
     }
 
     public void navigateTo(String _url){

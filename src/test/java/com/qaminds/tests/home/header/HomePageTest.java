@@ -11,7 +11,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 @Slf4j
 public class HomePageTest extends BaseTest {
 
-    HomePage hp = new HomePage(getDriver());
     @Test
     public void validateHomePage(){
         log.info("Step 1: Get the title of Home Page");
@@ -31,5 +30,8 @@ public class HomePageTest extends BaseTest {
         log.info("Step 1: Validate the menu option: Hotels");
         assertThat(Pages.returnHomePage(getDriver()).getTextOptionHotels()).isEqualTo("Hoteles");
         log.info("Step 2: Click on the option Hotels");
+        Pages.returnHomePage(getDriver()).onClickOptionHotels();
+        log.info("Step 3: Validate that exits the search input");
+        assertThat(Pages.returnHomePage(getDriver()).onClickOptionHotels().isEnabled()).isTrue();
     }
 }

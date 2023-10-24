@@ -16,6 +16,11 @@ public class HomePage {
         log.debug("Validate the option is: Hotels");
         return optionHotels.getText();
     }
+    public WebElement onClickOptionHotels(){
+        log.debug("Click on option Hotels");
+        optionHotels.click();
+        return searchInput;
+    }
 
     public HomePage(WebDriver driver){
         this.driver = driver;
@@ -24,5 +29,7 @@ public class HomePage {
     public WebElement logo;
     @FindBy(css = "button:nth-child(2) > span > a")
     public WebElement optionHotels;
+    @FindBy(css = "div > div > input")
+    public WebElement searchInput;
 
 }

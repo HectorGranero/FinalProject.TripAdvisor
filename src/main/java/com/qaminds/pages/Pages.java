@@ -11,4 +11,7 @@ public class Pages {
     public static HomePage returnHomePage(WebDriver driver){
         return Pages(driver, HomePage.class);
     }
+    public static HotelsPage returnHotelsPage(WebDriver driver){
+        return Pages(driver, HotelsPage.class);
+    }
 }

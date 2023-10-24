@@ -8,13 +8,10 @@ import java.time.Duration;
 import java.util.function.Function;
 
 public class WaitHelper {
-    private WebDriver driver;
+    private static WebDriver driver;
 
-    public WaitHelper(WebDriver driver){
-        this.driver = driver;
-    }
 
-    public WebElement waitForElementByWebElement(WebElement element, Duration timeout, Duration pollingInterval) {
+    public static WebElement waitForElementByWebElement(WebDriver driver, WebElement element, Duration timeout, Duration pollingInterval) {
         Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
                 .withTimeout(timeout)
                 .pollingEvery(pollingInterval)

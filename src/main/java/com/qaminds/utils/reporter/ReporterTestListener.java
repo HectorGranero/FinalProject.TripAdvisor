@@ -22,7 +22,7 @@ public class ReporterTestListener implements ITestListener {
     @Override
     public void onTestSuccess(ITestResult result) {
         log.info("--------- Successful Test : {} ----------", result.getName());
-        ReporterManager.createLogTest().pass("Successful Test");
+        ReporterManager.createLogTest().pass("Successful Test").log(Status.INFO, MarkupHelper.createLabel("Successful Test",ExtentColor.BLUE));
     }
 
     @Override

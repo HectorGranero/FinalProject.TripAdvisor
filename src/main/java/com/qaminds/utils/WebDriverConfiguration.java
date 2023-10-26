@@ -16,9 +16,6 @@ public class WebDriverConfiguration {
     }
 
     public static WebDriverConfiguration getInstance(WebDriver driver){
-        if (webDriverConfiguration == null){
-            webDriverConfiguration = new WebDriverConfiguration(driver);
-        }
-        return webDriverConfiguration;
+        return webDriverConfiguration = new WebDriverConfiguration(driver);
     }
 }

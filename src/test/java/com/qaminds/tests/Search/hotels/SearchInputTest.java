@@ -12,18 +12,34 @@ import static org.assertj.core.api.Assertions.assertThat;
 @Slf4j
 public class SearchInputTest extends BaseTest {
 
-    @DataProvider(name = "Lugar Destino")
-    public Object[][] getDestionationPlace(){
+    @DataProvider(name = "Lugar Destino invalido")
+    public Object[][] getDestionationPlaceIncorrect(){
         return new Object[][]{
             {RandomStringUtils.randomAlphabetic(10)},
             {RandomStringUtils.randomNumeric(10)},
-            {"!#$%&/()=.,"},
-            {RandomStringUtils.randomAlphanumeric(10)},
-            {RandomStringUtils.randomAscii(10)}
+        };
+    }
+    @DataProvider(name = "Lugar Destino valido")
+    public Object[][] getDestinationPlaceCorrect(){
+        return new Object[][]{
+                {"!#$%&/()=.,+-++---?¿¨´+{}"},
+                {RandomStringUtils.randomAlphanumeric(15)},
+                {RandomStringUtils.randomAscii(15)}
         };
     }
 
-    @Test(dataProvider = "Lugar Destino")
+    @Test(dataProvider = "Lugar Destino valido")
+    public void searchCorrectValues(String destinationPlace){
+        log.info("Step 3: Click on the text field Search");
+        Pages.returnHomePage(getDriver()).onClickButtonSearchInput();
+        log.info("Step 4: Send the destination place");
+        Pages.returnHomePage(getDriver()).sendDestinationPlace(destinationPlace);
+        log.info("Step 5: Validate the search");
+        String titleSearch = Pages.returnHotelsPage(getDriver()).getTitleQuerySearch(getDriver());
+        log.info(titleSearch);
+        assertThat(titleSearch).contains(destinationPlace);
+    }
+    @Test(dataProvider = "Lugar Destino invalido")
     public void searchIncorrectValues(String destinationPlace){
         log.info("Step 3: Click on the text field Search");
         Pages.returnHomePage(getDriver()).onClickButtonSearchInput();

@@ -63,7 +63,7 @@ public class ReporterManager {
         // Obtener una marca de tiempo para hacer el nombre del archivo único
         String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         // Crear la ruta del reporte y el nombre del archivo
-        String reportPath = "target/Reports/extentReport_" + timestamp + ".html";
+        String reportPath =  "target/Reports/extentReport_" + timestamp + ".html";
         setReportHTMLPath(reportPath);
     }
 

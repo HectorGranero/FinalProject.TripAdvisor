@@ -38,6 +38,7 @@ target/
 *.iml
 *.ipr
 .idea/
+email.properties
 
 ### Eclipse ###
 .apt_generated

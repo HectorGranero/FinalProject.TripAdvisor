@@ -1,4 +1,4 @@
-package com.qaminds.tests.menuOptions.hotels;
+package com.qaminds.tests.Search.hotels;
 
 import com.qaminds.pages.Pages;
 import com.qaminds.tests.BaseTest;

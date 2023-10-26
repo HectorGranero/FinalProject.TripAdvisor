@@ -1,7 +1,11 @@
 package com.qaminds.tests.home.header;
 
+import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.markuputils.ExtentColor;
+import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.qaminds.pages.Pages;
 import com.qaminds.tests.BaseTest;
+import com.qaminds.utils.reporter.ReporterManager;
 import lombok.extern.slf4j.Slf4j;
 import org.testng.annotations.Test;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -16,6 +20,7 @@ public class HomePageTest extends BaseTest {
         System.out.println("The title of the Home page is: " + title);
         log.info("Step 3: Validate the title is correct");
         assertThat(title).isEqualTo("Tripadvisor: más de mil millones de opiniones y aportes sobre hoteles, atracciones, restaurantes y más");
+        ReporterManager.createLogTest().log(Status.INFO, MarkupHelper.createLabel("Validate the title", ExtentColor.BLUE));
     }
 
     @Test
